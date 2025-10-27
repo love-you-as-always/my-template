@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 模拟模板数据
     const templates = [
+
         { id: 1, name: '2026目标拆解表模板', image: 'imgs/2026目标拆解表模板.png', downloadLink: 'downloads/2026目标拆解表模板.xlsx' },
         { id: 2, name: '个人月度预算表模板', image: 'imgs/个人月度预算表模板.png', downloadLink: 'downloads/个人月度预算表模板.xlsx' },
         { id: 3, name: '课程表模板', image: 'imgs/课程表模板.png', downloadLink: 'downloads/课程表模板.xlsx' },
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 7, name: '月收入支出模板', image: 'imgs/月收入支出模板.png', downloadLink: 'downloads/月收入支出模板.xlsx' },
         { id: 8, name: '周计划模板', image: 'imgs/周计划模板.png', downloadLink: 'downloads/周计划模板.xlsx' },
         {id: 9, name: '清新绿答辩流程目录单页模板', image: 'imgs/清新绿答辩流程目录单页模板.png', downloadLink: 'downloads/清新绿答辩流程目录单页模板.xlsx'}
+
     ];
 
     // 动态加载模板
@@ -20,12 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
         templateElement.className = 'template';
         templateElement.innerHTML = `
             <img src="${template.image}" alt="${template.name}" class="template-img">
+            <img src="${template.image}" alt="${template.name}">
             <div class="template-info">
                 <h3>${template.name}</h3>
                 <a href="${template.downloadLink}" class="download-btn" download>下载</a>
             </div>
         `;
         templatesContainer.appendChild(templateElement);
+
 
         // 添加点击预览功能
         const img = templateElement.querySelector('.template-img');
