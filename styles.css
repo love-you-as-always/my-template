@@ -1,103 +1,191 @@
+/* 基础样式 */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: #f8f9fa;
     color: #333;
 }
 
-header {
+/* 头部样式 */
+.header {
     text-align: center;
-    padding: 20px 0;
-    background-color: #4CAF50;
+    padding: 20px;
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
     color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    animation: fadeInDown 0.5s ease-out;
 }
 
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 搜索框样式 */
+.search-box {
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    width: 280px;
+    font-size: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.search-box:focus {
+    outline: none;
+    box-shadow: 0 2px 12px rgba(108, 92, 231, 0.3);
+}
+
+/* 分类按钮容器 */
+.category-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 分类按钮 */
+.category-container button {
+    padding: 10px 20px;
+    border: none;
+    background: #6c5ce7;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.category-container button:hover {
+    background: #5649c2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 模板容器 */
 .templates-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 25px;
+    margin-top: 140px;
 }
 
+/* 模板项 */
 .template {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: #e9ecef;
+    border-radius: 12px;
     overflow: hidden;
-    transition: transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .template:hover {
-    transform: translateY(-5px);
+    background: #dee2e6;
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
-.template img {
+/* 缩略图 */
+.thumbnail {
     width: 100%;
-
-    height: 200px;
-    object-fit: cover;
+    height: 180px;
+    border-bottom: 1px solid #eee;
     cursor: pointer;
-    height: auto;
-
+    background-size: cover;
+    background-position: center;
+    transition: all 0.3s;
 }
 
+.thumbnail:hover {
+    transform: scale(1.03);
+}
+
+/* 模板信息 */
 .template-info {
-    padding: 15px;
-    text-align: center;
+    padding: 20px;
 }
 
 .template-info h3 {
-    margin: 0 0 10px;
+    margin: 0 0 12px;
+    font-size: 18px;
+    color: #333;
 }
 
 .download-btn {
     display: inline-block;
-    padding: 8px 16px;
-    background-color: #4CAF50;
+    padding: 10px 20px;
+    background: #6c5ce7;
     color: white;
     text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s;
+    border-radius: 25px;
+    transition: all 0.3s;
+    font-weight: 500;
 }
 
 .download-btn:hover {
-    background-color: #45a049;
+    background: #5649c2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* 模态框样式 */
+/* 模态框 */
 .modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
     z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
 }
 
 .modal-content {
-    position: relative;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 80%;
-    max-height: 80%;
-    overflow: auto;
+    max-width: 85%;
+    max-height: 85%;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    animation: zoomIn 0.3s ease-out;
 }
 
-.modal-img {
-    max-width: 100%;
-    max-height: 80vh;
+@keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
-.close {
+.close-btn {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
+    top: 30px;
+    right: 30px;
+    color: white;
+    font-size: 35px;
     cursor: pointer;
+    transition: all 0.3s;
+}
+
+.close-btn:hover {
+    color: #ff7675;
+    transform: rotate(90deg);
 }

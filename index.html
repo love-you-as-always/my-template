@@ -7,13 +7,28 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <header class="header">
         <h1>模板集合</h1>
-        <p>点击模板下载</p>
+        <input type="text" class="search-box" placeholder="搜索模板...">
     </header>
-    <div class="templates-container">
-        <!-- 模板将通过JavaScript动态加载 -->
+
+    <div class="category-container">
+        <button>全部</button>
+        <button>表格</button>
+        <button>图表</button>
+        <button>其他</button>
     </div>
+
+    <div class="templates-container" id="templatesContainer">
+        <!-- 模板内容将通过 JavaScript 动态加载 -->
+    </div>
+
+    <!-- 模态框 -->
+    <div class="modal" id="modal">
+        <span class="close-btn" id="closeBtn">&times;</span>
+        <img class="modal-content" id="modalImage" src="" alt="模板预览">
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
